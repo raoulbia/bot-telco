@@ -1,0 +1,9 @@
+Flask
+requests
+gunicorn
+nltk
+numpy
+sklearn
+pandas
+tqdm
+-e git+git://github.com/raoulbia/nlp_utils.git#egg=nlp_utils
