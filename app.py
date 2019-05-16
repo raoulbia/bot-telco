@@ -9,6 +9,9 @@ import json
 
 app = Flask(__name__)
 
+app.secret_key = 'your secret'
+app.config['SESSION_TYPE'] = 'filesystem'
+
 zf = ZipFile('local-data/telco-customer-churn.zip')
 df = pd.read_csv(zf.open('WA_Fn-UseC_-Telco-Customer-Churn.csv'))
 print(df.head())
