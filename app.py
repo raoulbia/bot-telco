@@ -6,11 +6,14 @@ from flask import Flask, request, jsonify, render_template
 from zipfile import ZipFile
 import pandas as pd
 import json
+import os
 
 app = Flask(__name__)
 
-app.secret_key = 'your secret'
-app.config['SESSION_TYPE'] = 'filesystem'
+# app.secret_key = 'your secret'
+# app.config['SESSION_TYPE'] = 'filesystem'
+
+port = int(os.environ["PORT"])
 
 zf = ZipFile('local-data/telco-customer-churn.zip')
 df = pd.read_csv(zf.open('WA_Fn-UseC_-Telco-Customer-Churn.csv'))
@@ -81,9 +84,7 @@ def errors():
   print(json.loads(request.get_data().decode()))
   return jsonify(status=200)
 
-if __name__ == "__main__":
-    # app.run(debug=True, host = '0.0.0.0', port = 5000)
-    app.run()
+# if __name__ == "__main__":
+#     app.run(debug=True, host = '0.0.0.0', port = 5000)
 
-# app.run(port=port)
-# app.run(debug=True, host = '0.0.0.0', port = port)
+app.run(port=port, host="0.0.0.0")
