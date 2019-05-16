@@ -5,8 +5,7 @@
 from flask import Flask, request, jsonify, render_template
 from zipfile import ZipFile
 import pandas as pd
-import json, requests
-from itertools import compress
+import json
 
 app = Flask(__name__)
 
@@ -80,7 +79,7 @@ def errors():
   return jsonify(status=200)
 
 if __name__ == "__main__":
-    app.run(debug=True, host = '0.0.0.0', port = 5000)
+    app.run(debug=False, host = '0.0.0.0', port = 5000)
 
 # app.run(port=port)
 # app.run(debug=True, host = '0.0.0.0', port = port)
