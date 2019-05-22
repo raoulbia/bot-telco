@@ -1,0 +1,5 @@
+CustomerID,Contract,MonthlyCharges,TotalCharges,Upgrade,Churn,LTV,Excpected Chatbot Decision
+3668-QPYBK,Month-to-month,53.85,108.15,no,yes,low,no offer
+5575-GNVDE,One Year,56.95,1889.5,yes,yes,high,reduced price offer
+7469-LKBCI,Two year,18.95,326.8,yes,yes,low,retail price offer
+7795-CFOCW,One year,42.3,1840.7,yes,no,high,retail price offer

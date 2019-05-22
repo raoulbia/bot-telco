@@ -28,63 +28,67 @@
 		</script>
 		<div class="container">
 				<h1>Telco Chatbot Demo</h1>
-                <p>This chatbot can perform two tasks:</p>
-                <ul>
-                    <li>Look up whether the Customer is entitled to an iPhone upgrade. To this end, a simple business rule
-                        is used to inform the Chatbot's response: only one-, and two-year contracts can request an upgrade.
-                    Where an upgrade is possible, the Chatbot will share a link with the user for next steps on the Vodafone website.
-                    No link will be provided if the customer is not entitled to an upgrade.</li>
-                    <li>Lookup the customer's monthly and total charges.</li>
-                </ul>
-
-
-                <p>Some technical details about the Chatbot:</p>
-                <ul>
-                    <li>For the purposes of this Chatbot Demo, two datasets have been sourced from Kaggle. The first dataset,
-                    <a href="https://www.kaggle.com/blastchar/telco-customer-churn" target="_blank">Telco Customer Churn</a>,
-                    is used as the customer information data source.
-                    The second daaset,
-                    <a href="https://www.kaggle.com/thoughtvector/customer-support-on-twitter" target="_blank">Customer Support on Twitter</a>,
-                    is used as source for sentences used by SAP Recast AI to identify user intent.</li>
-                    <li>uses Python Pandas for the backend data validation and lookup. Data is stored in memory.
-                        In a production environment this can be changed to interface with an actual database.</li>
-                    <li>is deployed as a Single Page Application using Flask. Application files and code are stored on
-                        gitlab <a href="https://gitlab.com/raoulbia/bot-vodafone" target="_blank">here</a>.</li>
-                </ul>
+                <p>This chatbot helps the customer find out whether he/she is entitled to a phone upgrade.</p>
 
                 <p>Sample Data for Testing:</p>
                 <style type="text/css">
                 .tg  {border-collapse:collapse;border-spacing:0;}
                 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
                 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-                .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-                .tg .tg-7btt{font-weight:bold;border-color:inherit;text-align:center;vertical-align:top}
-                .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+                .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+                .tg .tg-baqh{text-align:center;vertical-align:top}
+                .tg .tg-0lax{text-align:left;vertical-align:top}
                 </style>
                 <table class="tg">
                   <tr>
-                    <th class="tg-7btt">Customer ID</th>
-                    <th class="tg-7btt">Contract</th>
-                    <th class="tg-7btt">Monthly Charges</th>
-                    <th class="tg-7btt">Total Charges</th>
+                    <th class="tg-1wig">CustomerID</th>
+                    <th class="tg-1wig">Contract</th>
+                    <th class="tg-1wig">MonthlyCharges</th>
+                    <th class="tg-1wig">TotalCharges</th>
+                    <th class="tg-1wig">Upgrade</th>
+                    <th class="tg-1wig">Churn</th>
+                    <th class="tg-1wig">LTV</th>
+                    <th class="tg-1wig">Excpected Chatbot Decision</th>
                   </tr>
                   <tr>
-                    <td class="tg-0pky">5575-GNVDE</td>
-                    <td class="tg-c3ow">One Year</td>
-                    <td class="tg-c3ow">56.95</td>
-                    <td class="tg-c3ow">1889.5</td>
+                    <td class="tg-0lax">3668-QPYBK</td>
+                    <td class="tg-0lax">Month-to-month</td>
+                    <td class="tg-0lax">53.85</td>
+                    <td class="tg-0lax">108.15</td>
+                    <td class="tg-baqh">no</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">low</td>
+                    <td class="tg-0lax">no offer</td>
                   </tr>
                   <tr>
-                    <td class="tg-0pky">3668-QPYBK</td>
-                    <td class="tg-c3ow">Month-to-month</td>
-                    <td class="tg-c3ow">53.85</td>
-                    <td class="tg-c3ow">108.15</td>
+                    <td class="tg-0lax">5575-GNVDE</td>
+                    <td class="tg-0lax">One Year</td>
+                    <td class="tg-0lax">56.95</td>
+                    <td class="tg-0lax">1889.5</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">high</td>
+                    <td class="tg-0lax">reduced price offer</td>
                   </tr>
                   <tr>
-                    <td class="tg-0pky">7469-LKBCI</td>
-                    <td class="tg-c3ow">Two year</td>
-                    <td class="tg-c3ow">18.95</td>
-                    <td class="tg-c3ow">326.8</td>
+                    <td class="tg-0lax">7469-LKBCI</td>
+                    <td class="tg-0lax">Two year</td>
+                    <td class="tg-0lax">18.95</td>
+                    <td class="tg-0lax">326.8</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">low</td>
+                    <td class="tg-0lax">retail price offer</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">7795-CFOCW</td>
+                    <td class="tg-0lax">One year</td>
+                    <td class="tg-0lax">42.3</td>
+                    <td class="tg-0lax">1840.7</td>
+                    <td class="tg-baqh">yes</td>
+                    <td class="tg-baqh">no</td>
+                    <td class="tg-baqh">high</td>
+                    <td class="tg-0lax">retail price offer</td>
                   </tr>
                 </table>
 				<footer class="footer">
