@@ -9,7 +9,7 @@ import json
 import os
 from itertools import compress
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # app.secret_key = 'your secret'
 # app.config['SESSION_TYPE'] = 'filesystem'
