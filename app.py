@@ -111,11 +111,10 @@ def errors():
 
 
 if __name__ == "__main__":
-    # comment/ uncomment below accordingly
 
     # local testing
-    app.run(debug=True, host = '0.0.0.0', port = 5000)
+    # app.run(debug=True, host = '0.0.0.0', port = 5000)
 
     # for Heroku deployment
-    # port = int(os.environ['PORT'])
-    # app.run(port=port, host="0.0.0.0")
+    port = int(os.environ['PORT'])
+    app.run(port=port, host="0.0.0.0")
