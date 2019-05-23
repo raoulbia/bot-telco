@@ -41,6 +41,8 @@ def upgrade():
         address_home = cust_record.home_address.values[0]
         address_store = cust_record.store_address.values[0]
         # print(upgrade, churn, ltv)
+        print(address_store)
+        print(address_home)
 
         offer_reduced = all([upgrade == 'yes', churn == 'yes', ltv == 'high'])
         offer_store_price = any([
@@ -53,8 +55,7 @@ def upgrade():
         offer_reduced_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade " \
                              "at a REDUCED PRICE! :) "
 
-        offer_store_price_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade. " \
-                                 "Click on the link below to find out more!"
+        offer_store_price_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade."
 
         offer_none_text = "Sorry, upgrades are not available for Pay as You Go customers. Call us on "
 
@@ -69,7 +70,7 @@ def upgrade():
         if offer_none:
             offer = None
         print(offer)
-        return respond(answer, offer, address_home, address_store)
+        return respond(answer, offer, str(address_home), str(address_store))
 
     else:
         answer = 'Sorry, this customer ID is not valid.'
