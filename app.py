@@ -38,6 +38,8 @@ def upgrade():
         upgrade = cust_record.Upgrade.values[0]
         churn = cust_record.Churn.values[0]
         ltv = cust_record.LTV.values[0]
+        address_home = cust_record.home_address.values[0]
+        address_store = cust_record.store_address.values[0]
         # print(upgrade, churn, ltv)
 
         offer_reduced = all([upgrade == 'yes', churn == 'yes', ltv == 'high'])
@@ -49,8 +51,7 @@ def upgrade():
         print(offer_reduced, offer_store_price, offer_none)
 
         offer_reduced_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade " \
-                             "at a REDUCED PRICE! :) " \
-                             "Click on the link below to find out more!"
+                             "at a REDUCED PRICE! :) "
 
         offer_store_price_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade. " \
                                  "Click on the link below to find out more!"
@@ -67,31 +68,31 @@ def upgrade():
             offer = 'reduced_price'
         if offer_none:
             offer = None
-
-        return respond(answer, offer)
+        print(offer)
+        return respond(answer, offer, address_home, address_store)
 
     else:
         answer = 'Sorry, this customer ID is not valid.'
         return respond(answer, validation='no')
 
 
-@app.route('/contract_query', methods=['POST'])
-def contract_query():
-    answer = ''
-    data = json.loads(request.get_data().decode())
-    cust_id = data["conversation"]["memory"]["customer"]["customer_id"]
-    row = df[df.customerID == cust_id]
-    if len(row) > 0:
-        monthly_charges = row.MonthlyCharges.values[0]
-        total_charges = row.TotalCharges.values[0]
-        answer = 'Your monthly charges are ' + str(monthly_charges) + '£. You have currently spent ' + total_charges + '£.'
-        return respond(answer)
-    else:
-        answer = 'Sorry, this customer ID is not valid.'
-        return respond(answer, validation='no')
+# @app.route('/contract_query', methods=['POST'])
+# def contract_query():
+#     answer = ''
+#     data = json.loads(request.get_data().decode())
+#     cust_id = data["conversation"]["memory"]["customer"]["customer_id"]
+#     row = df[df.customerID == cust_id]
+#     if len(row) > 0:
+#         monthly_charges = row.MonthlyCharges.values[0]
+#         total_charges = row.TotalCharges.values[0]
+#         answer = 'Your monthly charges are ' + str(monthly_charges) + '£. You have currently spent ' + total_charges + '£.'
+#         return respond(answer)
+#     else:
+#         answer = 'Sorry, this customer ID is not valid.'
+#         return respond(answer, validation='no')
 
 
-def respond(answer, offer, validation='yes'):
+def respond(answer, offer, home_address=None, store_address=None, validation='yes'):
     return jsonify(
     status=200,
     replies=[{
@@ -100,7 +101,10 @@ def respond(answer, offer, validation='yes'):
       'content': '%s' % (answer)
     }],
     conversation={
-      'memory': { 'offer_type': offer, 'validation_backend': validation}
+      'memory': { 'offer_type': offer,
+                  'validation_backend': validation,
+                  'home_addr': home_address,
+                  'store_addr': store_address}
     }
 )
 
