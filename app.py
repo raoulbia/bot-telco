@@ -57,19 +57,20 @@ def upgrade():
 
         offer_store_price_text = "I checked your account and I'm deligthed to confirm that you are elegible for an upgrade."
 
-        offer_none_text = "Sorry, upgrades are not available for Pay as You Go customers. Call us on "
+        offer_none_text = "Sorry, upgrades are not available for Pay as You Go customers.   "
 
         text = [offer_reduced_text, offer_store_price_text, offer_none_text]
         filter = [offer_reduced, offer_store_price, offer_none]
 
         answer = list(compress(text, filter))[0]
+        print(answer)
 
         offer = 'store_price'
         if offer_reduced:
             offer = 'reduced_price'
         if offer_none:
             offer = None
-        print(offer)
+        print('oofer', offer)
         return respond(answer, offer, str(address_home), str(address_store))
 
     else:
@@ -121,8 +122,8 @@ def errors():
 if __name__ == "__main__":
 
     # local testing
-    # app.run(debug=True, host = '0.0.0.0', port = 5000)
+    app.run(debug=True, host = '0.0.0.0', port = 5000)
 
     # for Heroku deployment
-    port = int(os.environ['PORT'])
-    app.run(port=port, host="0.0.0.0")
+    # port = int(os.environ['PORT'])
+    # app.run(port=port, host="0.0.0.0")
