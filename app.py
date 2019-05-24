@@ -32,7 +32,7 @@ def upgrade():
     # cust_id = data['nlp']['entities']['customer'][0]['raw']
     cust_id = data["conversation"]["memory"]["customer"]["customer_id"]
     cust_record = df[df.CustomerID==cust_id]
-
+    print(cust_record)
     if len(cust_record) > 0: # customer record exists
 
         upgrade = cust_record.Upgrade.values[0]
@@ -74,7 +74,10 @@ def upgrade():
 
     else:
         answer = 'Sorry, this customer ID is not valid.'
-        return respond(answer, validation='no')
+        address_home = None
+        address_store = None
+        offer=None
+        return respond(answer, offer, address_home, address_store, validation='no')
 
 
 # @app.route('/contract_query', methods=['POST'])
