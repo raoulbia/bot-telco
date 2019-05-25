@@ -9,7 +9,7 @@ import json
 import os
 from itertools import compress
 
-bot_app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='/static')
 
 # app.secret_key = 'your secret'
 # app.config['SESSION_TYPE'] = 'filesystem'
@@ -20,12 +20,12 @@ df = pd.read_csv('local-data/telco-customer.csv')
 print(df.head())
 
 
-@bot_app.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html') # use methods = GET
 
 
-@bot_app.route('/upgrade', methods=['POST'])
+@app.route('/upgrade', methods=['POST'])
 def upgrade():
     data = json.loads(request.get_data().decode())
     # print(data)
@@ -113,7 +113,7 @@ def respond(answer, offer, home_address=None, store_address=None, validation='ye
     }
 )
 
-@bot_app.route('/errors', methods=['POST'])
+@app.route('/errors', methods=['POST'])
 def errors():
   print(json.loads(request.get_data().decode()))
   return jsonify(status=200)
@@ -122,8 +122,8 @@ def errors():
 if __name__ == "__main__":
 
     # local testing
-    bot_app.run(debug=True, host = '0.0.0.0', port = 5000)
+    app.run(debug=True, host = '0.0.0.0', port = 5000)
 
     # for Heroku deployment
     # port = int(os.environ['PORT'])
-    # bot_app.run(port=port, host="0.0.0.0")
+    # app.run(port=port, host="0.0.0.0")
