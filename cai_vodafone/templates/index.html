@@ -8,7 +8,7 @@
         <base target="_blank">
 		<script>this.cai-webchat.clearMessages();</script>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css') }}" \
 			integrity="" \
 			crossorigin="anonymous">
@@ -31,6 +31,7 @@
 				id="cai-webchat">
 		</script>
 		<div class="container">
+            <div class="row">
 				<h1>Vodafone Chatbot Demo</h1>
                 <p>This chatbot helps the customer find out whether he/she is entitled to a phone upgrade.<br>
                     The chatbot has been implmented using the <a href="https://cai.tools.sap/">
@@ -41,10 +42,10 @@
                     unresponsiveness. In this case please clear your browser cache and cookies or use your <br>
                     browser in incognito mode.</p>
 
-                <img src="/static/images/chatbot_decision_rules.svg" />
 
-                <p style="margin-top:45px; font-weight:bold">Sample Data for Testing:</p>
-
+            </div>
+            <div class="row"><p style="margin-top:5px; font-weight:bold">Sample Data for Testing:</p></div>
+            <div class="row">
                 <style type="text/css">
                 .tg  {border-collapse:collapse;border-spacing:0;}
                 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -105,11 +106,14 @@
                     <td class="tg-0lax">retail price offer</td>
                   </tr>
                 </table>
+            </div>
 
-				<p style="margin-bottom:100px"></p>
-                <footer class="footer">
+            <div class="row"><p style="margin-bottom:50px"></p></div>
+            <div class="row">
+                <div class="col"><img src="/static/images/chatbot_conversation_flow.svg" /></div>
+                <div class="col"><img src="/static/images/chatbot_decision_rules.svg" /></div>
+            </div>
+        </div>
 
-				</footer>
-		</div>
 </body>
 </html>
