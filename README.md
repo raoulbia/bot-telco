@@ -1,6 +1,6 @@
 ## Telco Chatbot Demo with Flask Backend to Query Customer Data
 
-This repo conatines the code for a Flask application I developed to build a chatbot demo using the SAP 
+Flask application developed as part of a chatbot demo implementation using the SAP 
 Conversational AI platform. The companion tutorial for the chatbot implementation 
 can be found here.
 
