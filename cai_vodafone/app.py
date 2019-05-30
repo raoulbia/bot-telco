@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# https://github.com/Ahirice/sato/
-# https://cai.tools.sap/blog/python-cryptobot/
 
 from flask import Flask, request, jsonify, render_template
 from zipfile import ZipFile
@@ -11,13 +9,12 @@ from itertools import compress
 
 app = Flask(__name__, static_url_path='/static')
 
-# app.secret_key = 'your secret'
-# app.config['SESSION_TYPE'] = 'filesystem'
-
-# zf = ZipFile('local-data/telco-customer-churn.zip')
+# reading customer data from file
+# zf = ZipFile('data/telco-customer-churn.zip')
 # df = pd.read_csv(zf.open('WA_Fn-UseC_-Telco-Customer-Churn.csv'))
-df = pd.read_csv('local-data/telco-customer.csv')
-print(df.head())
+
+# reading data from file containing only demo accounts
+df = pd.read_csv('data/telco-customer.csv')
 
 
 @app.route('/', methods=['GET'])

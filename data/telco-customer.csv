@@ -1,0 +1,5 @@
+CustomerID,Contract,MonthlyCharges,TotalCharges,Upgrade,Churn,LTV,Excpected Chatbot Decision,home_address,store_address
+3668-QPYBK,Month-to-month,53.85,108.15,no,yes,low,no offer,"14 Taylor St, St. Stephens Ward, Kent.","5 High Street, St. Stephens Ward, Kent."
+5575-GNVDE,One Year,56.95,1889.5,yes,yes,high,reduced price offer,"5 Binney St, Abbey Ward, Buckinghamshire.","15 High Street, Abbey Ward, Buckinghamshire."
+7469-LKBCI,Two year,18.95,326.8,yes,yes,low,retail price offer,"8 Moor Place, East Southbourne and Tuckton W Bournemouth.","12 High Street, East Southbourne and Tuckton W Bournemouth."
+7795-CFOCW,One year,42.3,1840.7,yes,no,high,retail price offer,"5396 Forth Street, Greets Green and Lyng Ward, West Midlands.","24 High Street, Greets Green and Lyng Ward, West Midlands."
