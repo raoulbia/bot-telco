@@ -2,7 +2,7 @@
 
 Flask application developed as part of a chatbot demo implementation using the SAP 
 Conversational AI platform. The companion tutorial for the chatbot implementation 
-can be found here.
+can be found [here](https://medium.com/@raoulbia/procedural-flow-and-other-useful-techniques-for-implementing-a-chatbot-with-sap-conversational-ai-f6142adc3160).
 
 
 Chatbot Conversation Flow                                                               |  Chatbot Decision Rules

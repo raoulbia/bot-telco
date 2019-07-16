@@ -13,9 +13,11 @@ app = Flask(__name__, static_url_path='/static')
 # zf = ZipFile('data/telco-customer-churn.zip')
 # df = pd.read_csv(zf.open('WA_Fn-UseC_-Telco-Customer-Churn.csv'))
 
-# reading data from file containing only demo accounts
-df = pd.read_csv('/var/www/html/bot_telco/data/telco-customer.csv')
+# EC2
+#df = pd.read_csv('/var/www/html/bot_telco/data/telco-customer.csv')
 
+# Heroku
+df = pd.read_csv('data/telco-customer.csv')
 
 @app.route('/', methods=['GET'])
 def index():
