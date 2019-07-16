@@ -14,7 +14,7 @@ app = Flask(__name__, static_url_path='/static')
 # df = pd.read_csv(zf.open('WA_Fn-UseC_-Telco-Customer-Churn.csv'))
 
 # reading data from file containing only demo accounts
-df = pd.read_csv('data/telco-customer.csv')
+df = pd.read_csv('/var/www/html/bot_telco/data/telco-customer.csv')
 
 
 @app.route('/', methods=['GET'])
@@ -123,4 +123,5 @@ if __name__ == "__main__":
 
     # for Heroku deployment
     port = int(os.environ['PORT'])
-    app.run(port=port, host="0.0.0.0")
+    print(port)
+    app.run(debug=True, port=port, host="0.0.0.0")
