@@ -17,7 +17,7 @@ app = Flask(__name__, static_url_path='/static')
 #df = pd.read_csv('/var/www/html/bot_telco/data/telco-customer.csv')
 
 # Heroku
-df = pd.read_csv('data/telco-customer.csv')
+df = pd.read_csv('../data/telco-customer.csv')
 
 @app.route('/', methods=['GET'])
 def index():
